@@ -1,31 +1,7 @@
 import {createRouter,createWebHashHistory,RouteRecordRaw} from 'vue-router'
+import route from "./route.ts";
 
-const routes: Array<RouteRecordRaw> = [
-    {
-        path: '/',
-        name: '',
-        redirect: "/page1",
-        component: () => import('../views/Home.vue') ,
-        children:[
-            {
-                path:'/page1',
-                component: () => import('../views/Page1/index.vue') ,
-            },
-            {
-                path:'/page2',
-                component: () => import('../views/Page2/index.vue') ,
-            },
-            {
-                path:'/page3',
-                component: () => import('../views/Page3/index.vue') ,
-            },
-            {
-                path:'/page4',
-                component: () => import('../views/Page4/index.vue') ,
-            }
-        ]
-    }
-]
+const routes: Array<RouteRecordRaw> = route
 const router = createRouter({
     history: createWebHashHistory(),
     routes

@@ -78,7 +78,7 @@ onMounted(()=>{
 <style lang="less" scoped>
 .map-box{
   width: 100%;
-  height: 95%;
+  height: 100%;
   #map_container{
     width: 100%;
     height: 100%;

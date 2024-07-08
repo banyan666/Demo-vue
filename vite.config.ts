@@ -35,5 +35,11 @@ export default defineConfig({
     Components({
       resolvers: [ElementPlusResolver()],
     }),
-  ]
+  ],
+  server: {
+    https: false,
+    host: '0.0.0.0',
+    port:5174,
+    open: true
+  },
 })

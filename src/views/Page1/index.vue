@@ -1,8 +1,10 @@
 <template>
-  <div>page1</div>
-  <div>{{store.title}}</div>
-  <div style="width: 100%;height: 50%">
-    <MyEcharts :option="option"></MyEcharts>
+  <div style="width: 100%">
+    <div>page1</div>
+    <div>{{store.title}}</div>
+    <div style="width: 100%;height: 50%">
+      <MyEcharts :option="option"></MyEcharts>
+    </div>
   </div>
 </template>
 

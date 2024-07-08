@@ -29,7 +29,7 @@ onMounted(()=>{
 <style lang="less" scoped>
 .page2{
   width: 100%;
-  height: 95%;
+  height: 100%;
   background: linear-gradient(to bottom,var(--bg1),var(--bg2));
   .page-title{
     display: flex;

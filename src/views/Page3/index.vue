@@ -1,18 +1,20 @@
 <template>
-  <div style="padding: 50px">
-    <div class="top-buttons">
-      <div>工具栏：</div>
-      <el-button v-for="item in buttonList" type="primary" @click="getValue(item.value)">{{item.label}}</el-button>
+  <div style="width: 100%">
+    <div style="margin: 50px">
+      <div class="top-buttons">
+        <div>工具栏：</div>
+        <el-button v-for="item in buttonList" type="primary" @click="getValue(item.value)">{{item.label}}</el-button>
+      </div>
+      <div
+          ref="textRef"
+          id="editor"
+          :contenteditable="true"
+          @blur="onBlur"
+      ></div>
+      <el-button @click="getSpan({label:'商品价格', value:'price' })">商品价格</el-button>
+      <el-button @click="getSpan({label:'商品数量', value:'num' })">商品数量</el-button>
+      <el-button @click="getTextAndParams">获取公式</el-button>
     </div>
-    <div
-        ref="textRef"
-        id="editor"
-        :contenteditable="true"
-        @blur="onBlur"
-    ></div>
-    <el-button @click="getSpan({label:'商品价格', value:'price' })">商品价格</el-button>
-    <el-button @click="getSpan({label:'商品数量', value:'num' })">商品数量</el-button>
-    <el-button @click="getTextAndParams">获取公式</el-button>
   </div>
 </template>
 
@@ -172,7 +174,7 @@ const reviewFn = (data) =>{
   width: 100%;
   height: 150px;
   padding: 10px;
-  box-sizing: border-box;
+  //box-sizing: border-box;
   overflow: auto;
   background-color: #f5f5f5;
   border: 1px solid #ccc;
