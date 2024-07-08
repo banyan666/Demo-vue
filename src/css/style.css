@@ -1,0 +1,42 @@
+*{
+    padding: 0;
+    margin: 0;
+    /* 禁止出现光标 */
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    /*overflow: hidden; !* 可选，用于隐藏页面滚动条 *!*/
+}
+html,
+body{
+    width: 100%;
+    height: 100%;
+}
+#app{
+    width: 100%;
+    height: 100%;
+}
+/* scrollbar style start */
+::-webkit-scrollbar {
+    background: transparent;
+    width: 10px;
+    height: 10px
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #01304b;
+    width: 6px;
+    height: 6px;
+    border: 2px solid transparent;
+    background-clip: content-box
+}
+
+::-webkit-scrollbar-track {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background-color: transparent
+}

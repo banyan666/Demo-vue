@@ -12,10 +12,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "echarts": "^5.5.1",
     "element-plus": "^2.7.6",
+    "less": "^4.2.0",
+    "mapvgl": "1.0.0-beta.191",
     "pinia": "^2.1.7",
     "terser": "^5.31.1",
     "vue": "^3.4.29",
+    "vue-bmap-gl": "^0.1.2",
     "vue-router": "^4.4.0"
   },
   "devDependencies": {
