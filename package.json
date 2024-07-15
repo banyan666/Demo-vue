@@ -21,6 +21,7 @@
     "terser": "^5.31.1",
     "vue": "^3.4.29",
     "vue-bmap-gl": "^0.1.2",
+    "vue-i18n": "^9.13.1",
     "vue-router": "^4.4.0"
   },
   "devDependencies": {

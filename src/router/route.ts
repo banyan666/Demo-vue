@@ -24,6 +24,11 @@ const route = [
                 path:'/page4',
                 name:'页面4',
                 component: () => import('../views/Page4/index.vue') ,
+            },
+            {
+                path:'/page5',
+                name:'页面5',
+                component: () => import('../views/Page5/index.vue') ,
             }
         ]
     }

@@ -29,7 +29,7 @@ export default defineConfig({
         /\.vue\?vue/, // .vue
         /\.md$/, // .md
       ],
-      imports:['vue','vue-router'],
+      imports:['vue','vue-router','vue-i18n'],
       dts:'src/auto-imports.d.ts'
     }),
     Components({
