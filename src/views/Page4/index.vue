@@ -5,16 +5,18 @@
 </template>
 
 <script setup>
+import builds from '../../assets/json/buildings.json'
 import {BMPGL} from "../../utils/map.ts";
 import {styleJson2} from "./utils.ts";
-import {View} from 'mapvgl';
+import {View,ShapeLayer} from 'mapvgl';
 
 let Mymap;
 let Mapvgl = null;
+let lyLayer = null
 
 const mapData = {
   ak: 'Qqm5jVdSK3BRHOxAqKWQJL0TGo0OZYHJ',//百度密钥
-  mapCenterPoint: [116.41338729034514, 39.910923647957596],//地图默认中心点
+  mapCenterPoint: [125.32756,43.887723],//地图默认中心点
   mapMaxZoom: 21,//地图最大缩放
   mapMinZoom: 10,//地图最小缩放
   mapRotateAngle: 0,//地图默认旋转角度
@@ -65,13 +67,54 @@ const initMap = () =>{
     Mapvgl = new View({
       map:Mymap
     })
-
+    initBuilds()
   }).catch((err)=>{
     console.log(err)
   })
 }
+
+const initBuilds = () =>{
+  let buildArr = []
+  for(let i=0;i<builds.geometries.length;i++){
+    buildArr.push(
+        {
+          "geometry":builds.geometries[i],
+          "properties":{
+            "height":Math.floor(Math.random() * (100 - 50 + 1)) +50
+          }
+        }
+    )
+  }
+  drawLayer(buildArr)
+}
+// 定义绘制图层的函数
+const drawLayer=(ryhdata)=> {
+  lyLayer = new ShapeLayer({
+    // 设置图层参数...
+    // texture: this.wall,
+    // isTextureFull: true,
+    textureScale: 0.05,
+    blend: 'lighter',
+    // style: 'normal',
+    topColor: 'rgba(10,62,94,0.75)',
+    color: 'rgb(25,103,141)',
+    // style: 'windowAnimation',
+    opacity: 1,
+    enablePicked: true, // 是否可以拾取
+    selectedIndex: -1, // 选中项
+    selectedColor: '#FF6A3A', // 选中项颜色
+    autoSelect: true, // 根据鼠标位置来自动设置选中项
+    renderOrder:-1,
+    collides: true, // 是否开启碰撞检测, 数量较多时建议打开
+    zIndex: -5,
+    zoomThreshold:[14,30],
+  });
+  lyLayer.setData(ryhdata);
+  Mapvgl.addLayer(lyLayer);
+}
 onMounted(()=>{
   initMap()
+
 })
 </script>
 
