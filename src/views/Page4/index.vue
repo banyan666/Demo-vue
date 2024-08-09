@@ -1,10 +1,12 @@
 <template>
   <div class="map-box">
+    <Top></Top>
     <div id="map_container"></div>
   </div>
 </template>
 
 <script setup>
+import Top from '../../components/Top/index.vue'
 import builds from '../../assets/json/buildings.json'
 import {BMPGL} from "../../utils/map.ts";
 import {styleJson2} from "./utils.ts";
@@ -123,7 +125,7 @@ onMounted(()=>{
   width: 100%;
   height: 100%;
   #map_container{
-    width: 100%;
+    width: 1920px;
     height: 100%;
   }
 }

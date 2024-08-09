@@ -819,7 +819,7 @@ const animatetoLinetl=(el)=> {
     /*left: 50%;*/
     top: 20px;
     text-align: center;
-    color:var(--text-color);
+    color:#fff;
     letter-spacing: 3px;
     font-size: 36px;
     font-weight: bold;
