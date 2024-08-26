@@ -1,11 +1,13 @@
 <template>
   <div class="map-box">
+    <Loading v-if="isLoad"></Loading>
     <Top></Top>
     <div id="map_container"></div>
   </div>
 </template>
 
 <script setup>
+import Loading from '../../components/Loading/index.vue'
 import Top from '../../components/Top/index.vue'
 import builds from '../../assets/json/buildings.json'
 import {BMPGL} from "../../utils/map.ts";
@@ -15,6 +17,7 @@ import {View,ShapeLayer} from 'mapvgl';
 let Mymap;
 let Mapvgl = null;
 let lyLayer = null
+const isLoad = ref(true)
 
 const mapData = {
   ak: 'Qqm5jVdSK3BRHOxAqKWQJL0TGo0OZYHJ',//百度密钥
@@ -116,7 +119,9 @@ const drawLayer=(ryhdata)=> {
 }
 onMounted(()=>{
   initMap()
-
+  setTimeout(()=>{
+    isLoad.value = false
+  },1500)
 })
 </script>
 
