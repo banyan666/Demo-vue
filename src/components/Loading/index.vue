@@ -150,9 +150,9 @@ const init = () =>{
     shape:{
       cx: 960,
       cy: 540,
-      r: cirR-90,
-
-    }
+      r: cirR-85,
+    },
+    origin:[960,540]
   });
   let arc6=new zrender.Arc({
     style:{
@@ -172,7 +172,7 @@ const init = () =>{
       stroke:lineColor,
       fill:'none',
       lineWidth: 10,
-      lineDash: [100]
+      lineDash: [110]
     },
     shape:{
       cx: 960,
@@ -190,30 +190,32 @@ const init = () =>{
   group.add(arc6)
   group.add(arc7)
   group.add(mainText)
-  animateCir(arc2,arc4,arc7,mainText)
+  animateCir(arc2,arc4,arc5,arc7,mainText)
 
 
   zr.add(group);
 }
-const animateCir = (el,el1,el2,text) =>{
+const animateCir = (el,el1,el2,el3,text) =>{
   el.animate('', true)
       .when(10000, {rotation: Math.PI*2})
       .done( ()=> {
 
-      })
-      .start()
+      }).start()
   el1.animate('', true)
       .when(25000, {rotation: -Math.PI*2})
       .done( ()=> {
 
-      })
-      .start()
+      }).start()
   el2.animate('', true)
+      .when(25000, {rotation: Math.PI*2})
+      .done( ()=> {
+
+      }).start()
+  el3.animate('', true)
       .when(2000, {rotation: Math.PI*2})
       .done( ()=> {
 
-      })
-      .start()
+      }).start()
   let index=10;
   text.animate('style', true)
       .when(2000, {

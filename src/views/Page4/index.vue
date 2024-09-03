@@ -119,9 +119,9 @@ const drawLayer=(ryhdata)=> {
 }
 onMounted(()=>{
   initMap()
-  setTimeout(()=>{
-    isLoad.value = false
-  },1500)
+  // setTimeout(()=>{
+  //   isLoad.value = false
+  // },1500)
 })
 </script>
 
