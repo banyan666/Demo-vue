@@ -78,22 +78,7 @@ const init = () =>{
     },
     z: 999
   })
-  let arc3=new zrender.Arc({
-    style:{
-      stroke:lineColor,
-      fill:'none',
-      lineWidth: 4,
-      shadowColor: lineColor,
-      shadowBlur: 20,
-      lineDash: [0]
-    },
-    shape:{
-      cx: 960,
-      cy: 540,
-      r: cirR+20,
 
-    }
-  });
   let arc1=new zrender.Arc({
     style:{
       stroke:jxColor1,
@@ -123,6 +108,22 @@ const init = () =>{
       r: cirR-10,
     },
     origin:[960,540]
+  });
+  let arc3=new zrender.Arc({
+    style:{
+      stroke:lineColor,
+      fill:'none',
+      lineWidth: 4,
+      shadowColor: lineColor,
+      shadowBlur: 20,
+      lineDash: [0]
+    },
+    shape:{
+      cx: 960,
+      cy: 540,
+      r: cirR+20,
+
+    }
   });
   let arc4=new zrender.Arc({
     style:{
@@ -171,7 +172,7 @@ const init = () =>{
       stroke:lineColor,
       fill:'none',
       lineWidth: 10,
-      lineDash: [130]
+      lineDash: [100]
     },
     shape:{
       cx: 960,
