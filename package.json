@@ -23,6 +23,7 @@
     "vue-bmap-gl": "^0.1.2",
     "vue-i18n": "^9.13.1",
     "vue-router": "^4.4.0",
+    "vue3-seamless-scroll": "^2.0.1",
     "xlsx": "^0.18.5",
     "zrender": "^5.6.0"
   },
