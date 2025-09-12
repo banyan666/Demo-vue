@@ -15,6 +15,9 @@
       <el-button @click="getSpan({label:'商品数量', value:'num' })">商品数量</el-button>
       <el-button @click="getTextAndParams">获取公式</el-button>
     </div>
+    <div style="margin: 50px">
+      <span>{{ formulaObj }}</span>
+    </div>
   </div>
 </template>
 
@@ -122,7 +125,7 @@ const getSpan = (params) => {
   // 添加选区
   selection.value?.addRange(range.value);
 };
-
+const formulaObj = ref({})
 /**
  * 获取构建的html里面的文本和参数
  */
@@ -145,6 +148,7 @@ const getTextAndParams = () => {
     label:textRef.value?.innerText
   }
   console.log(data)
+  formulaObj.value = data
   return data
 };
 
