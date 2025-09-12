@@ -29,6 +29,12 @@ importers:
       terser:
         specifier: ^5.31.1
         version: 5.31.1
+      three:
+        specifier: ^0.180.0
+        version: 0.180.0
+      three-edit-cores:
+        specifier: ^0.0.11
+        version: 0.0.11
       vue:
         specifier: ^3.4.29
         version: 3.4.31(typescript@5.5.3)
@@ -616,6 +622,9 @@ packages:
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
 
+  gsap@3.13.0:
+    resolution: {integrity: sha512-QL7MJ2WMjm1PHWsoFrAQH/J8wUeqZvMtHO58qdekHpCfhvhSL4gSiz6vJf5EeMP0LOn3ZCprL2ki/gjED8ghVw==}
+
   he@1.2.0:
     resolution: {integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==}
     hasBin: true
@@ -655,6 +664,9 @@ packages:
     resolution: {integrity: sha512-P3b3HJDBtSzsXUl0im2L7gTO5Ubg8mEN6G8qoTS77iXxXX4Hvu4Qj540PZDvQ8V6DmX6iXo98k7Md0Cm1PrLaA==}
     engines: {node: '>=6'}
     hasBin: true
+
+  lil-gui@0.20.0:
+    resolution: {integrity: sha512-k7Ipr0ztqslMA2XvM5z5ZaWhxQtnEOwJBfI/hmSuRh6q4iMG9L0boqqrnZSzBR1jzyJ28OMl47l65ILzRe1TdA==}
 
   local-pkg@0.5.0:
     resolution: {integrity: sha512-ok6z3qlYyCDS4ZEU27HaU6x/xZa9Whf8jD4ptH5UZTQYZVYeb9bnZ3ojVhiJNLiXK1Hfc0GNbLXcmZ5plLDDBg==}
@@ -832,6 +844,15 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
+  three-edit-cores@0.0.11:
+    resolution: {integrity: sha512-Uorhqu+JGa4mdAySLskRkbycuGcEVz1rPssz3yrnHONfZpx5g+DjVYWDgL9SR2XmFuJyKgE6qJIVftR/YY9Ycg==}
+
+  three@0.178.0:
+    resolution: {integrity: sha512-ybFIB0+x8mz0wnZgSGy2MO/WCO6xZhQSZnmfytSPyNpM0sBafGRVhdaj+erYh5U+RhQOAg/eXqw5uVDiM2BjhQ==}
+
+  three@0.180.0:
+    resolution: {integrity: sha512-o+qycAMZrh+TsE01GqWUxUIKR1AL0S8pq7zDkYOQw8GqfX8b8VoCKYUoHbhiX5j+7hr8XsuHDVU6+gkQJQKg9w==}
+
   throttle-debounce@5.0.0:
     resolution: {integrity: sha512-2iQTSgkkc1Zyk0MeVrt/3BvuOXYPl/R8Z0U2xxo9rjwNciaHDG3R+Lm6dh4EeUci49DanvBnuqI6jshoQQRGEg==}
     engines: {node: '>=12.22'}
@@ -892,6 +913,12 @@ packages:
 
   uppercamelcase@1.1.0:
     resolution: {integrity: sha512-C7YEMvhgrvTEKEEVqA7LXNID/1TvvIwYZqNIKLquS6y/MGSkRQAav9LnTTILlC1RqUM8eTVBOe1U/fnB652PRA==}
+
+  vanjs-core@1.5.5:
+    resolution: {integrity: sha512-BC9MjbXYIRqnwncXfacT6upJpVmIKyrV2MjZi8NuCK+yc9RP0hfdghTpmEuYswXOfkLarDPPcYK4X6q68T9e+g==}
+
+  vanjs-ui@0.11.13:
+    resolution: {integrity: sha512-yu9D8VGw6ESLlHkIVKCpEUlgUdxZ+gNDiJt+XJsip+6p/U+qaUnTWWy9Mhh1ow2QuQY7ETiUm6OgYHsd3jmbkg==}
 
   vite@5.3.3:
     resolution: {integrity: sha512-NPQdeCU0Dv2z5fu+ULotpuq5yfCS1BzKUIPhNbP3YBfAMGJXbt2nS+sbTFu+qchaqWTD+H3JK++nRwr6XIcp6A==}
@@ -1481,6 +1508,8 @@ snapshots:
   graceful-fs@4.2.11:
     optional: true
 
+  gsap@3.13.0: {}
+
   he@1.2.0: {}
 
   iconv-lite@0.6.3:
@@ -1520,6 +1549,8 @@ snapshots:
       mime: 1.6.0
       needle: 3.3.1
       source-map: 0.6.1
+
+  lil-gui@0.20.0: {}
 
   local-pkg@0.5.0:
     dependencies:
@@ -1694,6 +1725,18 @@ snapshots:
       commander: 2.20.3
       source-map-support: 0.5.21
 
+  three-edit-cores@0.0.11:
+    dependencies:
+      gsap: 3.13.0
+      lil-gui: 0.20.0
+      three: 0.178.0
+      vanjs-core: 1.5.5
+      vanjs-ui: 0.11.13
+
+  three@0.178.0: {}
+
+  three@0.180.0: {}
+
   throttle-debounce@5.0.0: {}
 
   to-fast-properties@2.0.0: {}
@@ -1772,6 +1815,12 @@ snapshots:
   uppercamelcase@1.1.0:
     dependencies:
       camelcase: 1.2.1
+
+  vanjs-core@1.5.5: {}
+
+  vanjs-ui@0.11.13:
+    dependencies:
+      vanjs-core: 1.5.5
 
   vite@5.3.3(less@4.2.0)(terser@5.31.1):
     dependencies:

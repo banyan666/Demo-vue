@@ -39,8 +39,14 @@ const route = [
                 path:'/page7',
                 name:'页面7',
                 component: () => import('../views/Page7/index1.vue') ,
-            }
+            },
         ]
-    }
+    },
+    {
+        path:'/three',
+        name:'编辑器',
+        component: () => import('../views/ThreeEdit/index.vue') ,
+    },
+
 ]
 export default route

@@ -8,6 +8,7 @@
         @select="selectMenu"
     >
       <el-menu-item v-for="item in route[0].children" :index="item.path" :key="item.path">{{item.name}}</el-menu-item>
+      <el-menu-item :index="'/three'" :key="'/three'">编辑器</el-menu-item>
     </el-menu>
   </div>
 </template>
@@ -17,7 +18,12 @@ import route from '../../router/route.ts'
 const router = useRouter()
 const selectMenu = (index,indexPath, item,routeResult) =>{
   console.log(index,indexPath, item,routeResult)
-  router.push(index)
+  if(index === '/three'){
+    const url = router.resolve({ path: index }).href; // 获取完整的 URL
+    window.open(url, '_blank'); // 在新标签页中打开
+  }else {
+    router.push(index)
+  }
 }
 
 </script>
