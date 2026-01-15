@@ -1,93 +1,97 @@
 <template>
-  <div style="height: 100vh; width: 100%; overflow: hidden; position: relative;">
-    <div class="bottom-bar">
-      <div style="width: 100%;height: 100%">
-        <!-- 弧形容器定位在页面底部 -->
-        <div ref="arcContainer" style="width: 720px;height: 100%;display: flex;justify-content: space-between;align-items: center;margin: 0 auto">
-          <!-- 动态渲染图标 -->
-          <div
-              v-for="(icon, index) in iconsCount"
-              :key="index"
-              :class="['icon_'+index +' icon', iconIndex === index ? 'active_icon' : '']"
-          @click="() => { setTheme(index) }"
-          >
+  <div class="bottom-buttons">
+    <div class="buttons-box">
+      <div v-for="(item, i) in routers"  :key="item">
+        <div
+            :class="['button-icon',activeKey===item?'active_icon':'']"
+            :style="getStyle(i)"
+            @click="toRouter(item)"
+        >
         </div>
       </div>
     </div>
   </div>
-  </div>
 </template>
 
 <script setup>
-import {nextTick, onMounted, ref} from 'vue'
+const radius = 1000;//半径
+const step = 5;//间隔
+const width = 720
+const routers = ['A','B','C','D','E','F','G','H']
+const activeKey = ref(null)
+const toRouter = (item) => {
+  console.log( item)
+  activeKey.value = item
+}
+/**
+ * 绘制圆弧形的布局样式
+ * @type {ComputedRef<unknown>}
+ */
+// 圆心
+const centerX = computed(() => width / 2);
+const centerY = computed(() => radius + 50); // 圆心在下方偏移一些
 
-// 图标数量
-const iconsCount = 12;
-const iconIndex = ref(null); // 当前选中的图标索引
+const getStyle = (i) => {
+  const n = routers.length;
 
-// 设置选中的图标
-const setTheme = (index) => {
-  iconIndex.value = index;
-};
-onMounted(() => {
-  nextTick(() => {
-    getIconStyle(); // 确保DOM更新后再调整位置
-  });
-});
-const arcContainer = ref(null)
-let marginBottom = 0
-const marginStep = 6
-// 计算每个图标的 margin-bottom
-const getIconStyle = () => {
-  const iconElements = arcContainer.value.querySelectorAll('.icon');
-  const iconCount = iconElements.length;
-  const half = Math.floor(iconCount / 2);  // 中心图标的索引（对于偶数总数，中心是两者的中间）
-  console.log(iconCount,half,'aaaaaaaaaaaaaaa')
-  iconElements.forEach((icon,index)=>{
+  if (n === 1) {
+    var angle = 0;
+  } else {
+    const maxAngle = 30;
 
-    if(iconCount%2===0){
-      if(index<half){
-        marginBottom += marginStep * (half - index);
-      }else if(index===half || index===half-1){
-          marginBottom = marginBottom
-        } else{
-        marginBottom -= marginStep * (index - half);
-      }
-    }else{
-      if(index<half){
-        marginBottom += marginStep * (half - index);
-      }else if(index===half){
-        marginBottom += 8;
-      } else if(index===half+1){
-        marginBottom -= 8;
-      }else{
-        marginBottom -= marginStep * (index-1 - half);
-      }
-    }
-    icon.style.marginBottom = `${marginBottom}px`
-  })
+    const total = Math.min(maxAngle, (n - 1) * step);
+    const start = -total / 2;
+    const end = total / 2;
+
+    angle = start + (end - start) * (i / (n - 1));
+  }
+
+  const rad = (angle * Math.PI) / 180;
+
+  const x = centerX.value + radius * Math.sin(rad);
+  const y = centerY.value - radius * Math.cos(rad);
+
+  return {
+    left: x + "px",
+    top: y + "px"
+  };
 };
 </script>
 
 <style lang="less" scoped>
-.bottom-bar {
-  width: 100%;
-  position: absolute;
+/* 路由按钮*/
+.bottom-buttons {
+  position: fixed;
   bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 720px;
   height: 60px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   background-image: url('../../assets/img/bottom-open.png');
-  background-position: center;  /* 背景图居中对齐 */
-  background-repeat: no-repeat;  /* 禁止平铺 */
+}
+.buttons-box{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 60px;
 }
 
-.icon {
-  width: 70px;
-  height: 70px;
+.button-icon {
+  position: absolute;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  transform: translate(-50%, -70%);
+  color: white;
+  font-size: 16px;
+  pointer-events: all;
   cursor: pointer;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   background-image: url("../../assets/img/basemap.png");
-  background-size: cover;
 }
-
 .active_icon {
   background-image: url("../../assets/img/basemap-active.png");
 }
